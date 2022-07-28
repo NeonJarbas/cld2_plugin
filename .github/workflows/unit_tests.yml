@@ -36,11 +36,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements/requirements.txt
           pip install -r requirements/test_requirements.txt
-      - name: Test apertium Translator
+      - name: Test cld2 Detector
         run: |
-          pytest tests/test_translate.py --doctest-modules --junitxml=tests/test-translate-results.xml
-      - name: Upload test translate results
+          pytest tests/test_detect.py --doctest-modules --junitxml=tests/test-detect-results.xml
+      - name: Upload test detect results
         uses: actions/upload-artifact@v2
         with:
-          name: test-translate-results
-          path: tests/test-translate-results.xml
+          name: test-detect-results
+          path: tests/test-detect-results.xml
